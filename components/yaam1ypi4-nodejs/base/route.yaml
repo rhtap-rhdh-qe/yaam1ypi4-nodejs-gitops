@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: yaam1ypi4-nodejs
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: yaam1ypi4-nodejs 
+  name: yaam1ypi4-nodejs
+spec:
+  port:
+    targetPort: 3001 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: yaam1ypi4-nodejs
+    weight: 100 
